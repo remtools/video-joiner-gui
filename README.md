@@ -114,8 +114,6 @@ video-joiner-gui/
 ├── index.py              # GUI script
 ├── requirements.txt      # Dependencies
 ├── README.md             # You're reading it
-├── .gitignore
-└── dist/ (optional)      # Built .exe goes here
 ```
 
 ---

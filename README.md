@@ -130,4 +130,3 @@ This project is licensed under the MIT License.
 
 - [MoviePy](https://github.com/Zulko/moviepy)
 - [Tkinter](https://docs.python.org/3/library/tkinter.html)
-- You — for building open-source tools!

@@ -3,8 +3,6 @@
 A simple, open-source desktop app to join multiple video files from a folder into one single video.  
 Built with Python, MoviePy, and Tkinter — no coding experience required to use it.
 
-![screenshot](https://via.placeholder.com/600x300?text=Video+Joiner+GUI+Preview) <!-- Replace with actual screenshot later -->
-
 ---
 
 ## ✨ Features

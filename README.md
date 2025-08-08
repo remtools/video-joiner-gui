@@ -7,12 +7,14 @@ Built with Python, MoviePy, and Tkinter — no coding experience needed.
 
 ## ✨ Features
 
-- 📂 Select folder containing videos  
-- 💾 Choose where to save the output file  
-- 📊 Visual progress bar while loading and exporting  
-- 🔃 Automatically joins videos in alphabetical order  
-- 🎥 Supports `.mp4`, `.mov`, `.avi`, `.mkv`  
-- 🛠 Build a portable `.exe` with PyInstaller  
+- 📂 Select folder containing videos
+- 🔢 Instantly see how many clips are detected
+- 💾 Choose where to save the output file
+- 📊 Visual progress bar while loading and exporting
+- ✅ Join button activates only when everything's ready
+- 🔃 Automatically joins videos in alphabetical order
+- 🎥 Supports `.mp4`, `.mov`, `.avi`, `.mkv`
+- 🛠 Build a portable `.exe` with PyInstaller
 
 ---
 

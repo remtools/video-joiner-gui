@@ -11,10 +11,13 @@ class VideoJoinerApp:
 
         self.folder_path = StringVar()
         self.output_path = StringVar()
+        self.file_count_var = StringVar()
+        self.has_videos = False
 
         Label(master, text="1. Select video folder:").pack()
         Button(master, text="📂 Browse Folder", command=self.browse_folder).pack()
         Label(master, textvariable=self.folder_path).pack()
+        Label(master, textvariable=self.file_count_var).pack()
 
         Label(master, text="2. Choose output file:").pack()
         Button(master, text="💾 Save As...", command=self.choose_output_file).pack()
@@ -26,18 +29,39 @@ class VideoJoinerApp:
         self.status = StringVar()
         Label(master, textvariable=self.status).pack()
 
-        Button(master, text="▶️ Join Videos", command=self.run_joining).pack(pady=10)
+        self.join_button = Button(master, text="▶️ Join Videos", command=self.run_joining, state="disabled")
+        self.join_button.pack(pady=10)
 
     def browse_folder(self):
         folder = filedialog.askdirectory()
         if folder:
             self.folder_path.set(folder)
 
+            video_extensions = ['.mp4', '.mov', '.avi', '.mkv']
+            video_files = [
+                f for f in os.listdir(folder)
+                if os.path.isfile(os.path.join(folder, f)) and os.path.splitext(f)[1].lower() in video_extensions
+            ]
+            count = len(video_files)
+            self.has_videos = count > 0
+            self.file_count_var.set(f"{count} video(s) found" if self.has_videos else "No videos found")
+            if not self.has_videos:
+                messagebox.showerror("Error", "No video files found in folder.")
+
+            self.update_join_button_state()
+
     def choose_output_file(self):
         file_path = filedialog.asksaveasfilename(defaultextension=".mp4",
                                                  filetypes=[("MP4 files", "*.mp4")])
         if file_path:
             self.output_path.set(file_path)
+            self.update_join_button_state()
+
+    def update_join_button_state(self):
+        if self.folder_path.get() and self.output_path.get() and self.has_videos:
+            self.join_button.config(state="normal")
+        else:
+            self.join_button.config(state="disabled")
 
     def run_joining(self):
         folder = self.folder_path.get()
